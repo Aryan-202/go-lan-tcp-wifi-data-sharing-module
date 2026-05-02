@@ -4,6 +4,8 @@ import (
 	"fmt"
 	
 	"os"
+
+	"github.com/Aryan-202/go-lan-tcp-wifi-data-sharing-module/helpers"
 )
 
 func main() {
@@ -26,4 +28,7 @@ func main() {
 			fmt.Printf("%-20s %d\n", entry.Name(), info.Size())
 		}
 	}
+
+	cleaned := helpers.CleanInput("  Hello   World  ")
+	fmt.Println("Cleaned input:", cleaned)
 }
