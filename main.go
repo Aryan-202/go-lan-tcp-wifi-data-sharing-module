@@ -1,34 +1,25 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	
+	"log"
 	"os"
 
-	"github.com/Aryan-202/go-lan-tcp-wifi-data-sharing-module/helpers"
+	"github.com/urfave/cli/v3"
 )
 
 func main() {
-	entries, err := os.ReadDir(".")
-	if err != nil {
-		fmt.Println("Error: ", err)
-		return
-	}
-	fmt.Printf("%-20s %s\n", "File Name", "Size")
+	cmd := &cli.Command{
+        Name:  "send",
+        Usage: "this command will send file",
+        Action: func(context.Context, *cli.Command) error {
+            fmt.Println("send file")
+            return nil
+        },
+    }
 
-	for _, entry := range entries {
-		if !entry.IsDir() {
-			info, err := entry.Info()
-
-			if err != nil {
-				fmt.Printf("Could not get info %s: %v\n", entry.Name(), err)
-				continue
-			}
-
-			fmt.Printf("%-20s %d\n", entry.Name(), info.Size())
-		}
-	}
-
-	cleaned := helpers.CleanInput("  Hello   World  ")
-	fmt.Println("Cleaned input:", cleaned)
+    if err := cmd.Run(context.Background(), os.Args); err != nil {
+        log.Fatal(err)
+    }
 }
