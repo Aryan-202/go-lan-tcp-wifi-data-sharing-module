@@ -23,3 +23,7 @@ the configured discovery protocols.`,
 func init() {
 	rootCmd.AddCommand(discoverCmd)
 }
+
+func GetDiscoverCmd() *cobra.Command {
+	return discoverCmd
+}
