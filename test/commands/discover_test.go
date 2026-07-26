@@ -16,11 +16,9 @@ func TestDiscoverCmd(t *testing.T) {
 	
 	discoverCmd.SetOut(buf)
 	discoverCmd.SetErr(buf)
-	discoverCmd.SetArgs([]string{})
-
-	err := discoverCmd.Execute()
+	err := discoverCmd.RunE(discoverCmd, []string{})
 	if err != nil {
-		t.Fatalf("discoverCmd.Execute() failed unexpectedly: %v", err)
+		t.Fatalf("discoverCmd.RunE() failed unexpectedly: %v", err)
 	}
 
 	got := buf.String()

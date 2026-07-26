@@ -1,18 +1,16 @@
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
 )
 
 var discoverCmd = &cobra.Command{
 	Use:   "discover",
 	Short: "Discover nearby GoShare devices",
-	Long: `Search the local network for GoShare peers usingz
+	Long: `Search the local network for GoShare peers using
 the configured discovery protocols.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		fmt.Println("Searching for nearby devices...")
+		cmd.Println("Searching for nearby devices...")
 
 		// TODO: Call internal/discovery package
 
