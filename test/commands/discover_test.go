@@ -16,6 +16,7 @@ func TestDiscoverCmd(t *testing.T) {
 	
 	discoverCmd.SetOut(buf)
 	discoverCmd.SetErr(buf)
+	_ = discoverCmd.Flags().Set("timeout", "500ms")
 	err := discoverCmd.RunE(discoverCmd, []string{})
 	if err != nil {
 		t.Fatalf("discoverCmd.RunE() failed unexpectedly: %v", err)
