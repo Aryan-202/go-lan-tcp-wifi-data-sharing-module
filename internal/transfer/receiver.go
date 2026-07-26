@@ -66,7 +66,7 @@ func ReceiveFile(conn net.Conn, saveDir string, sessionKey []byte, state *Transf
 		}
 
 		// Decrypt segment payload with segment AAD header
-		aad := []byte(fmt.Sprintf("segment-%d", packet.SegmentIndex))
+		aad := fmt.Appendf([]byte{}, "segment-%d", packet.SegmentIndex)
 		decryptedSegment, err := security.Decrypt(sessionKey, packet.Payload, aad)
 		if err != nil {
 			return nil, fmt.Errorf("decryption failed for segment index %d: %w", packet.SegmentIndex, err)
