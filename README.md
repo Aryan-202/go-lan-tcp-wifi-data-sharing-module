@@ -21,7 +21,7 @@ The system features automatic local service discovery, end-to-end cryptographic 
 
 GoShare is built with a modular package architecture following standard Go project conventions:
 
-```
+```text
 .
 ├── cmd/                # Command-Line Interface (Cobra CLI definitions)
 │   ├── root.go         # Root command & argument sanitizer
@@ -34,9 +34,9 @@ GoShare is built with a modular package architecture following standard Go proje
 │   └── transfer/       # File segmenter, manifest, protocol framing, & state persistence
 ├── test/               # Comprehensive unit and integration test suites
 │   ├── commands/       # CLI command execution tests
-│   ├── discovery/      # Discovery package unit tests
+│   ├── discovery/       # Discovery package unit tests
 │   ├── security/       # Security & cryptography unit tests
-│   └── transfer/       # File transfer engine & state tests
+│   └── transfer/      # File transfer engine & state tests
 ├── docs/               # Software Requirements Specification (SRS)
 ├── main.go             # Main application entry point
 ├── go.mod              # Go module definitions
